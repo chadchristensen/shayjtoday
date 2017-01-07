@@ -1,0 +1,11 @@
+/* FOOTER */
+#footer {
+  position: fixed;
+  z-index: 1000;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  background-color: white;
+  border-top: 1px solid darken(#FFFFFF, 10%);
+  padding: 7px 0 7px 0;
+}

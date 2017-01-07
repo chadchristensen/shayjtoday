@@ -1,0 +1,13 @@
+#merch {
+  .container {
+    display: flex;
+    height: 70vh;
+    justify-content: center;
+    align-items: center;
+
+    #coming-soon {
+      font-size: 84px;
+      text-transform: uppercase;
+    }
+  }
+}

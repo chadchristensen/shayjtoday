@@ -1,0 +1,166 @@
+@import '../css/style.scss';
+
+/* PRIMARY NAV */
+.main-nav {
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  z-index: 5000;
+  background-image: linear-gradient(to bottom, black 0%, rgba(0,0,0,.001) 100%);
+  padding: 16px 0;
+  color: #ffffff;
+
+  ul.nav-expanded {
+    padding: 0;
+    text-align: center;
+    margin: 0;
+
+    li {
+      display: inline-block;
+      list-style: none;
+      margin-right: 15px;
+
+      &#logo {
+        a {
+          display: inline-block;
+          letter-spacing: -1px;
+          border: none;
+
+          h1 {
+            margin: 0;
+          }
+
+          &:hover::after {
+            opacity: 0;
+          }
+
+          &.active {
+            h1 {
+                border-bottom: none;
+            }
+          }
+        }
+      }
+
+      a {
+          position: relative;
+          outline: none;
+          color: #fff;
+          text-decoration: none;
+          padding: 0 0 5px;
+          letter-spacing: 1px;
+          font-weight: 400;
+          font-size: 1.15em;
+
+          &::after {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: $secondary;
+            content: '';
+            opacity: 0;
+            transition: height 0.3s, opacity 0.3s, transform 0.3s;
+            transform: translateY(-10px);
+          }
+
+          &:hover, &:focus {
+            outline: none;
+
+            &::after {
+              height: 2px;
+              opacity: 1;
+              transform: translateY(0px);
+            }
+          }
+
+          &.active {
+            border-bottom: solid 2px $secondary;
+          }
+      }
+    }
+
+    li:last-child {
+      margin-right: 0;
+    }
+
+    @media (max-width: 780px) {
+      text-align: center;
+
+      li {
+        display: none;
+
+        a {
+          // Get rid of hover effect
+          &:hover, &:focus {
+            &::after {
+              opacity: 0;
+            }
+          }
+
+          &.active {
+            border: none;
+          }
+        }
+      }
+
+      &.visible {
+        margin-top: 18px;
+        background-color: black;
+      }
+      &.visible li {
+        display: block;
+        margin: 0;
+        font-size: 12pt;
+        padding: 8px 0;
+        border-top: 2px solid rgba(255, 255, 255, .2);
+
+        &#logo {
+          display: none;
+        }
+
+        a.active {
+          color: $secondary;
+        }
+
+
+      }
+    }
+  } // End of ul.nav-expanded
+
+  i#hamburger {
+    display: none;
+    text-align: right;
+    margin-right: 25px;
+
+    @media(max-width: 780px) {
+      display: block;
+    }
+  }
+
+  #logo-collapsed {
+    text-decoration: none;
+    letter-spacing: -2px;
+
+    h1 {
+      color: white;
+      display: none;
+      position: absolute;
+      top: 15px;
+      left: 25px;
+      margin: 0;
+      width: 75%;
+
+      @media(max-width: 780px) {
+        display: inline-block;
+      }
+    }
+  }
+
+  &.expanded {
+    padding-bottom: 0;
+  }
+
+
+
+} // End of main-nav
