@@ -9,14 +9,14 @@ class Contact extends Component {
   }
 
   sendFormData() {
-    var formData = {
+    const formData = {
       name: React.findDOMNode(this.refs.name).value,
       email: React.findDOMNode(this.refs.email).value,
       subject: React.findDOMNode(this.refs.subject).value,
       message: React.findDOMNode(this.refs.message).value
     }
 
-    var xhr = new XMLHttpRequest();
+    const xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
       if (xhr.readyState === 4) {
         var response = JSON.parse(xhr.responseText);
@@ -45,25 +45,28 @@ class Contact extends Component {
             </div>
           </div>
 
-          <form action="" onSubmit={this.handleSubmit} id="contact-form">
+          <form action="/sendmail" method="POST" id="contact-form">
             <FormGroup>
               <ControlLabel>Name</ControlLabel>
               <FormControl
                ref="name"
                type="text"
-               label="Name">
+               label="Name"
+               name="name">
               </FormControl>
               <ControlLabel>Email*</ControlLabel>
               <FormControl
                ref="email"
                type="email"
                label="Email"
+               name="email"
                required>
               </FormControl>
               <ControlLabel>Subject</ControlLabel>
               <FormControl
                ref="subject"
                type="text"
+               name="subject"
                label="Subject">
               </FormControl>
               <ControlLabel>Message*</ControlLabel>
@@ -71,6 +74,7 @@ class Contact extends Component {
                ref="message"
                componentClass="textarea"
                label="Message"
+               name="message"
                required>
               </FormControl>
               <Button id="contact-submit" type="submit">Send</Button>
