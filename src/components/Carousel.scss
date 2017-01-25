@@ -58,7 +58,11 @@ $link-bg: #DCAB2A;
       transition: all .5s ease;
 
       @media(max-width: 550px) {
-        font-size: 38px;
+        font-size: 32px;
+      }
+
+      @media(max-width: 420px) {
+        font-size: 26px;
       }
     }
 
@@ -72,7 +76,7 @@ $link-bg: #DCAB2A;
       transition: all .5s ease;
 
       &:hover {
-        background-color: darken($link-bg, 15%);
+        transform: scale(1.1);
       }
 
       @media(max-width: 550px) {
